@@ -27,14 +27,14 @@
 		<plugins>
 			<plugin>
 				<!-- 用Jetty插件运行 http://localhost:8080 -->
-				<!-- <groupId>org.eclipse.jetty</groupId> -->
-				<!-- <artifactId>jetty-maven-plugin</artifactId> -->
-				<!-- <version>9.3.10.M0</version> -->
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.10.M0</version>
 
 				<!-- 用Tomcat插件运行 http://localhost:8080/projectname -->
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
+				<!-- <groupId>org.apache.tomcat.maven</groupId> -->
+				<!-- <artifactId>tomcat7-maven-plugin</artifactId> -->
+				<!-- <version>2.2</version> -->
 				<executions>
 					<execution>
 						<!-- 在package的时候运行 -->
