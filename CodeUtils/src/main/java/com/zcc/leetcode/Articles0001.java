@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Test;
-
 /**
  * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。 复杂度分析： 时间复杂度： O(n2)O(n^2) O(n ​2 ​​)， 对于每个元素，我们试图通过遍历数组的其余部分来寻找它所对应的目标元素，这将耗费 O(n)O(n) O(n) 的时间。因此时间复杂度为 O(n2)O(n^2) O(n ​2 ​​)。 空间复杂度： O(1)O(1) O(1)。
  * 
@@ -121,13 +119,4 @@ public class Articles0001 {
 		throw new IllegalArgumentException("No two sum solution");
 	}
 
-	@Test
-	public void twoSumTest() {
-		int[] nums = { 3, 6, 2, 13, 7, 11, 15 };
-		int target = 13;
-		System.out.println(Arrays.toString(twoSum(nums, target)));
-		System.out.println(Arrays.toString(twoSumOne(nums, target)));
-		System.out.println(Arrays.toString(twoSumuseMap(nums, target)));
-		System.out.println(Arrays.toString(twoSumuseMap2(nums, target)));
-	}
 }

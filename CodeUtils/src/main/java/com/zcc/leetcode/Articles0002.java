@@ -1,10 +1,7 @@
 package com.zcc.leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
 
 /**
  * 
@@ -43,46 +40,5 @@ public class Articles0002 {
 		if (carry == 1)
 			cur.next = new ListNode(1);
 		return dummy.next;
-	}
-
-	@Test
-	public void testaddTwoNumbers() {
-		ListNode l1 = new ListNode(2);
-		System.err.println(l1.val);
-		l1.next = new ListNode(4);
-		System.err.println(l1.next.val);
-		l1.next.next = new ListNode(3);
-		System.err.println(l1.next.next.val);
-		System.err.println(Arrays.toString(l1.getArray()));
-		ListNode l2 = new ListNode(5);
-		l2.next = new ListNode(6);
-		l2.next.next = new ListNode(4);
-		System.err.println(Arrays.toString(l2.getArray()));
-		System.out.println(Arrays.toString(addTwoNumbers(l1, l2).getArray()));
-	}
-
-}
-
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode(int x) {
-		val = x;
-		next = null;
-	}
-
-	int[] getArray() {
-		List<Integer> list = new ArrayList<>();
-		ListNode temp = this;
-		while (null != temp) {
-			list.add(temp.val);
-			temp = temp.next;
-		}
-		int[] ssss = new int[list.size()];
-		for (int i = 0; i < list.size(); i++) {
-			ssss[i] = list.get(i);
-		}
-		return ssss;
 	}
 }
