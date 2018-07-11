@@ -1,8 +1,5 @@
 package com.zcc.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 
  * @author zhaocc
@@ -41,4 +38,5 @@ public class Articles0002 {
 			cur.next = new ListNode(1);
 		return dummy.next;
 	}
+
 }
