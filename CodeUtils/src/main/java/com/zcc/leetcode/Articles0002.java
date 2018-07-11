@@ -22,17 +22,22 @@ public class Articles0002 {
 		ListNode dummy = new ListNode(-1);
 		ListNode cur = dummy;
 		int carry = 0;
-		while (l1 != null || l2 != null) {
+		while (null != l1 || null != l2) {
 			int d1 = l1 == null ? 0 : l1.val;
 			int d2 = l2 == null ? 0 : l2.val;
 			int sum = d1 + d2 + carry;
 			carry = sum >= 10 ? 1 : 0;
 			cur.next = new ListNode(sum % 10);
 			cur = cur.next;
-			if (l1 != null)
+			if (l1 != null) {
+				System.out.println("l1.val:::::---->" + l1.val);
 				l1 = l1.next;
-			if (l2 != null)
+			}
+			if (l2 != null) {
+				System.out.println("l2.val:::::---->" + l2.val);
 				l2 = l2.next;
+			}
+			System.out.println("cur.next:::::----->" + cur.val);
 		}
 		if (carry == 1)
 			cur.next = new ListNode(1);

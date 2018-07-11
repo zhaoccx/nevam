@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-
 public class ArticlesTest {
 
 	@Test
@@ -17,21 +16,16 @@ public class ArticlesTest {
 		System.out.println(Arrays.toString(articles0001.twoSumuseMap(nums, target)));
 		System.out.println(Arrays.toString(articles0001.twoSumuseMap2(nums, target)));
 	}
-	
+
 	@Test
 	public void testArticles0002() {
 		Articles0002 articles0002 = new Articles0002();
-		ListNode l1 = new ListNode(2);
-		System.err.println(l1.val);
-		l1.next = new ListNode(4);
-		System.err.println(l1.next.val);
-		l1.next.next = new ListNode(3);
-		System.err.println(l1.next.next.val);
-		System.err.println(Arrays.toString(l1.getArray()));
-		ListNode l2 = new ListNode(5);
-		l2.next = new ListNode(6);
-		l2.next.next = new ListNode(4);
-		System.err.println(Arrays.toString(l2.getArray()));
+		ListNode l1 = new ListNode(1);
+		l1.next = new ListNode(1);
+		l1.next.next = new ListNode(1);
+		ListNode l2 = new ListNode(1);
+		l2.next = new ListNode(1);
+		l2.next.next = new ListNode(1);
 		System.out.println(Arrays.toString(articles0002.addTwoNumbers(l1, l2).getArray()));
 	}
 }
