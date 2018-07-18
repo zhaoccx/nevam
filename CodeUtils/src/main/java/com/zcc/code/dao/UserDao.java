@@ -29,4 +29,10 @@ public interface UserDao {
 	 */
 	public Integer addOneUser(User user);
 
+	public Integer addOneUser(User user, User user2);
+
+	public User addOneUser(User user, User user2, User user3);
+
+	public User addOneUser(User user, User user2, User user3, User user4);
+
 }
