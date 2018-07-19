@@ -1,5 +1,7 @@
 package com.zcc.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 
  * @author leetcode
@@ -23,9 +25,9 @@ public class Articles0002 {
 		ListNode currlistnode = templistnode; // 当前node
 		int carry = 0;
 		while (null != listnodeone || null != listnodeother) {
-			int d1 = listnodeone == null ? 0 : listnodeone.val;
-			int d2 = listnodeother == null ? 0 : listnodeother.val;
-			int sum = d1 + d2 + carry;
+			int tempone = listnodeone == null ? 0 : listnodeone.val;
+			int tempother = listnodeother == null ? 0 : listnodeother.val;
+			int sum = tempone + tempother + carry;
 			carry = sum >= 10 ? 1 : 0;
 			currlistnode.next = new ListNode(sum % 10);
 			currlistnode = currlistnode.next;
@@ -38,6 +40,16 @@ public class Articles0002 {
 				listnodeother = listnodeother.next;
 			}
 			System.out.println("cur.next:::::----->" + currlistnode.val);
+			System.err.println("********************************");
+			System.err.println("********************************");
+			System.err.println("********************************");
+			System.err.println("********************************");
+			System.out.println("currlistnode.getArray()"+Arrays.toString(currlistnode.getArray()));
+			System.out.println("templistnode.getArray()"+Arrays.toString(templistnode.getArray()));
+			System.err.println("********************************");
+			System.err.println("********************************");
+			System.err.println("********************************");
+			System.err.println("********************************");
 		}
 		if (carry == 1)
 			currlistnode.next = new ListNode(1);
