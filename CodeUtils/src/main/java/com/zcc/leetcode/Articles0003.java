@@ -41,6 +41,7 @@ public class Articles0003 {
 				list.add(temp);
 				mapchar.put(array[i], i);
 			}
+
 		}
 		System.err.println(mapchar);
 		for (int i = 0; i < list.size(); i++) {
