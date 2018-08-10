@@ -34,6 +34,10 @@ public class Articles0003 {
 		for (int i = 0; i < array.length; i++) {
 			if (!mapchar.containsKey(array[i])) {
 				mapchar.put(array[i], i);
+				int[] temp = new int[2];
+				temp[0] = mapchar.get(array[i]);
+				temp[1] = i;
+				list.add(temp);
 			} else {
 				int[] temp = new int[2];
 				temp[0] = mapchar.get(array[i]);
@@ -42,6 +46,21 @@ public class Articles0003 {
 				mapchar.put(array[i], i);
 			}
 
+		}
+
+		int start = 0, end = 0, temps = 0;
+		for (int i = 0; i < array.length; i++) {
+			for (int j = i; j < array.length; i++) {
+				if (array[i] == array[j]) {
+					start = i;
+					end = j;
+					temps = j - i;
+				} else {
+					start = i;
+					end = j;
+					temps = j - i;
+				}
+			}
 		}
 		System.err.println(mapchar);
 		for (int i = 0; i < list.size(); i++) {
@@ -52,6 +71,6 @@ public class Articles0003 {
 	}
 
 	public static void main(String[] args) {
-		new Articles0003().lengthOfLongestSubstring("abcdabcdefg");
+		new Articles0003().lengthOfLongestSubstring("abcdabcdef");
 	}
 }
