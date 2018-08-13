@@ -2,8 +2,10 @@ package com.zcc.leetcode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 
@@ -50,17 +52,19 @@ public class Articles0003 {
 
 		int start = 0, end = 0, temps = 0;
 		for (int i = 0; i < array.length; i++) {
+			int temssss = 0;
 			for (int j = i; j < array.length; i++) {
 				if (array[i] == array[j]) {
 					start = i;
 					end = j;
-					temps = j - i;
+					temssss = j - i;
 				} else {
 					start = i;
 					end = j;
-					temps = j - i;
+					temssss = j - i;
 				}
 			}
+
 		}
 		System.err.println(mapchar);
 		for (int i = 0; i < list.size(); i++) {
@@ -70,7 +74,38 @@ public class Articles0003 {
 		return tempint;
 	}
 
+	public int lengthOfLongestSubstringBak(String s) {
+		int n = s.length();
+		int ans = 0;
+		for (int i = 0; i < n; i++)
+			for (int j = i + 1; j <= n; j++)
+				if (allUnique(s, i, j))
+					ans = Math.max(ans, j - i);
+		return ans;
+	}
+
+	/**
+	 * @author SYSTEM
+	 * @time 2018年8月13日 下午2:37:21
+	 * @param s
+	 * @param i
+	 * @param j
+	 * @return
+	 * @path
+	 * @parent
+	 */
+	private boolean allUnique(String s, int start, int end) {
+		Set<Character> set = new HashSet<>();
+		for (int i = start; i < end; i++) {
+			Character ch = s.charAt(i);
+			if (set.contains(ch))
+				return false;
+			set.add(ch);
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
-		new Articles0003().lengthOfLongestSubstring("abcdabcdef");
+		new Articles0003().lengthOfLongestSubstringBak("abcdabcdef");
 	}
 }
