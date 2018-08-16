@@ -1,10 +1,6 @@
 package com.zcc.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,65 +22,27 @@ public class Articles0003 {
 	 * @parent
 	 */
 	public int lengthOfLongestSubstring(String s) {
-		if (null == s || s.length() < 1) {
-			return 0;
-		}
-		int tempint = 0;
-		char[] array = s.toCharArray();
-		List<int[]> list = new ArrayList<>();
-		Map<Character, Integer> mapchar = new HashMap<>();
-		for (int i = 0; i < array.length; i++) {
-			if (!mapchar.containsKey(array[i])) {
-				mapchar.put(array[i], i);
-				int[] temp = new int[2];
-				temp[0] = mapchar.get(array[i]);
-				temp[1] = i;
-				list.add(temp);
-			} else {
-				int[] temp = new int[2];
-				temp[0] = mapchar.get(array[i]);
-				temp[1] = i;
-				list.add(temp);
-				mapchar.put(array[i], i);
-			}
+		return 0;
+	}
 
-		}
-
-		int start = 0, end = 0, temps = 0;
-		for (int i = 0; i < array.length; i++) {
-			int temssss = 0;
-			for (int j = i; j < array.length; i++) {
-				if (array[i] == array[j]) {
-					start = i;
-					end = j;
-					temssss = j - i;
-				} else {
-					start = i;
-					end = j;
-					temssss = j - i;
+	public int lengthOfLongestSubstring_one(String s) {
+		int n = s.length();
+		int ans = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j <= n; j++) {
+				// 两层循环，字符串中没有重复的对比大小
+				if (allUnique(s, i, j)) {
+					ans = Math.max(ans, j - i);
 				}
 			}
 
 		}
-		System.err.println(mapchar);
-		for (int i = 0; i < list.size(); i++) {
-			tempint = list.get(i)[1] - list.get(i)[0] > tempint ? list.get(i)[1] - list.get(i)[0] : tempint;
-		}
-		System.out.println(tempint);
-		return tempint;
-	}
-
-	public int lengthOfLongestSubstringBak(String s) {
-		int n = s.length();
-		int ans = 0;
-		for (int i = 0; i < n; i++)
-			for (int j = i + 1; j <= n; j++)
-				if (allUnique(s, i, j))
-					ans = Math.max(ans, j - i);
 		return ans;
 	}
 
 	/**
+	 * 判断字符串中有没有重复的字符
+	 * 
 	 * @author SYSTEM
 	 * @time 2018年8月13日 下午2:37:21
 	 * @param s
@@ -98,14 +56,33 @@ public class Articles0003 {
 		Set<Character> set = new HashSet<>();
 		for (int i = start; i < end; i++) {
 			Character ch = s.charAt(i);
-			if (set.contains(ch))
+			if (set.contains(ch)) {
 				return false;
+			}
 			set.add(ch);
 		}
 		return true;
 	}
 
+	public int lengthOfLongestSubstring_two(String s) {
+		int n = s.length();
+		Set<Character> set = new HashSet<>();
+		int ans = 0, i = 0, j = 0;
+		while (i < n && j < n) {
+			// try to extend the range [i, j]
+			if (!set.contains(s.charAt(j))) {
+				set.add(s.charAt(j++));
+				ans = Math.max(ans, j - i);
+			} else {
+				set.remove(s.charAt(i++));
+			}
+			System.err.println(set);
+		}
+		return ans;
+	}
+
 	public static void main(String[] args) {
-		new Articles0003().lengthOfLongestSubstringBak("abcdabcdef");
+		System.out.println(new Articles0003().lengthOfLongestSubstring_one("abcpyutdabcdef"));
+		System.out.println(new Articles0003().lengthOfLongestSubstring_two("abcpyutdabcdef"));
 	}
 }
